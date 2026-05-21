@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Vocab Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-wrapper">
+        <div class="top-bar">
+            <div class="word-counter">Tarjeta <b id="cur">1</b> de <b id="total">32</b></div>
+            <div class="streak-badge"><span>🔥</span> Racha: <b id="streak">0</b></div>
+        </div>
+
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="prog" style="width:3.125%"></div>
+        </div>
+
+        <div class="card-scene" id="card-scene" onclick="flipCard()">
+            <div class="card-inner" id="card-inner">
+                <div class="card-face" id="front">
+                    <div class="pos-badge" id="pos">Adjective</div>
+                    <div class="card-word" id="word">Systematic</div>
+                    <div class="card-phonetic" id="phonetic">/ˌsɪstəˈmætɪk/</div>
+                    <div class="flip-hint">Haz clic para revelar</div>
+                </div>
+                <div class="card-back" id="back">
+                    <div class="back-label">Significado</div>
+                    <div class="back-meaning" id="meaning">Done according to a plan.</div>
+                    <div class="back-example" id="example">We need a systematic approach to data cleaning.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-panel" id="quiz-panel">
+            <div class="quiz-label">🧠 Modo Quiz — ¿Cuál es el significado?</div>
+            <input class="quiz-input" id="quiz-input" type="text" placeholder="Escribe el significado en inglés..." autocomplete="off" />
+            <div class="quiz-feedback" id="quiz-fb"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="navigate(-1)">← Anterior</button>
+            <button class="btn btn-primary" id="check-btn" onclick="checkAnswer()">Verificar</button>
+            <button class="btn" onclick="navigate(1)">Siguiente →</button>
+        </div>
+
+        <div class="bottom-bar">
+            <button class="mastered-btn" id="mastered-btn" onclick="toggleMastered()">✓ Dominada</button>
+            <button class="mode-toggle" id="mode-toggle" onclick="toggleQuizMode()">📝 Modo Quiz</button>
+        </div>
+
+        <div class="mastered-count">Dominadas: <b id="mcount">0</b> / <span id="total2">32</span></div>
+    </div>
+
+    <script src="vocabulary.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
